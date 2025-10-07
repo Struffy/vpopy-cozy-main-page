@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fast Food — Header</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    @font-face {
+      font-family: 'Cooper';
+      src: url('https://cdn.jsdelivr.net/gh/google/fonts/ofl/cooper/cooper.woff2') format('woff2');
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Верхние секции */
+    .top-sections {
+      background: #f0f0f0;
+      display: flex;
+      gap: 1rem;
+      padding: 0.25rem 1.5rem;
+      font-size: 0.85rem;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .top-sections a {
+      color: #222;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .top-sections a:hover {
+      color: #ffd1dc;
+    }
+
+    /* Header */
+    .navbar {
+      background: url('https://www.beboss.pro/new/files/1e/a2/banner-17149081920-_4apc9.1180x600.jpg') no-repeat center center;
+      background-size: cover;
+      border-bottom: 1px solid #e6e6e6;
+      font-family: 'Cooper', serif;
+      padding: 0.75rem 1.5rem;
+    }
+
+    .navbar-brand img {
+      height: 72px; /* крупнее логотип */
+      width: auto;
+    }
+
+    /* Градиент текста */
+    .nav-link, .top-sections a, .mobile-nav li a, .mobile-top-sections a {
+      background: linear-gradient(90deg, #b30059, #e60073);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-link:hover, .top-sections a:hover, .mobile-nav li a:hover, .mobile-top-sections a:hover {
+      background: linear-gradient(90deg, #ff99b3, #ffccd9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-links .nav-link {
+      font-size: 1.25rem;
+      font-weight: 600;
+      padding: 0.75rem 1rem;
+      text-decoration: none;
+    }
+
+    /* Мобильный гамбургер */
+    .navbar-toggler {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      padding: 0;
+      border: none;
+      background: transparent;
+    }
+
+    /* Иконка гамбургера */
+    .navbar-toggler-icon {
+      display: inline-block;
+      width: 22px;
+      height: 14px;
+      position: relative;
+    }
+    .navbar-toggler-icon::before,
+    .navbar-toggler-icon::after,
+    .navbar-toggler-icon span {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: #b30059;
+    }
+    .navbar-toggler-icon::before { top: 0; }
+    .navbar-toggler-icon span { top: 6px; }
+    .navbar-toggler-icon::after { bottom: 0; }
+
+    /* Мобильное меню */
+    .offcanvas {
+      background: url('https://main-cdn.sbermegamarket.ru/hlr-system/100/185/704/422/517/26/600005562019b0.jpeg') no-repeat center center;
+      background-size: cover;
+    }
+
+    .mobile-nav {
+      list-style: none;
+      margin: 0;
+      padding: 0.5rem 0;
+    }
+    .mobile-nav li a {
+      display: block;
+      padding: 1rem 1.25rem;
+      font-weight: 600;
+      border-bottom: 1px solid #eee;
+      font-size: 1.05rem;
+    }
+
+    /* Верхние секции (мобильная прокрутка) */
+    .mobile-top-sections {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 1rem;
+      background: #f0f0f0;
+      white-space: nowrap;
+    }
+
+    @media (min-width: 992px) {
+      .navbar-toggler { display: none; }
+    }
+    @media (max-width: 991.98px) {
+      .nav-links { display: none !important; }
+            .top-sections { display:none; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <!-- Верхняя панель -->
+  <div class="top-sections">
+    <a href="#">Карьера</a>
+    <a href="#">Инвестиции</a>
+    <a href="#">Франшиза</a>
+    <a href="#">Новости</a>
+  </div>
+
+  <!-- Основной навбар -->
+  <nav class="navbar">
+    <div class="container-fluid">
+      <!-- Логотип ведёт на главную -->
+      <a class="navbar-brand d-flex align-items-center" href="/">
+        <img src="https://i.ibb.co/TVH7ZRP/18764028-rm370-08-KOPIY.png" alt="Логотип сети фаст фуд">
+      </a>
+
+      <!-- Ссылки -->
+      <div class="nav-links d-flex ms-auto align-items-center">
+        <ul class="nav">
+          <li class="nav-item"><a class="nav-link" href="#">Меню</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Акции</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Членство</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Благотворительность</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Подарочная карта</a></li>
+        </ul>
+      </div>
+
+      <!-- Мобильный гамбургер -->
+      <a class="navbar-toggler ms-2" href="#mobileMenu" role="button"
+         data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-label="Открыть меню">
+        <span class="navbar-toggler-icon"><span></span></span>
+      </a>
+    </div>
+  </nav>
+</header>
+
+<!-- Мобильное меню -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+  <div class="offcanvas-header">
+    <a class="navbar-brand" href="/">
+      <img src="https://i.ibb.co/TVH7ZRP/18764028-rm370-08-KOPIY.png" alt="Логотип" style="height:40px;">
+    </a>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
+  </div>
+
+  <!-- Прокручиваемая верхняя панель в мобильной версии -->
+  <div class="mobile-top-sections">
+    <a href="#">Карьера</a>
+    <a href="#">Инвестиции</a>
+    <a href="#">Франшиза</a>
+    <a href="#">Новости</a>
+    <a href="#">Блог</a>
+  </div>
+
+  <div class="offcanvas-body">
+    <ul class="mobile-nav">
+       <li><a href="#">Меню</a></li>
+       <li><a href="#">Акции</a></li>
+      <li><a href="#">Членство</a></li>
+      <li><a href="#">Подарочная карта</a></li>
+      <li><a href="#">Благотварительность</a></li>
+      <li><a href="#">О нас</a></li>
+    </ul>
+  </div>
+</div>
+
+<section class="promo-carousel-section" id="promoCarouselSection">
+  <style>
+    .promo-carousel-section {
+      background: url('https://i.pinimg.com/736x/06/17/3d/06173d72e3a238b75da921681d01dd65.jpg') no-repeat center center;
+      background-size: cover;
+      padding: 4rem 0;
+      position: relative;
+      overflow: hidden;
+      transition: background-image 0.6s ease-in-out;
+    }
+
+    .promo-carousel-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(2px);
+    }
+
+    .promo-carousel-section > * { position: relative; z-index: 1; }
+
+    .promo-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      background: linear-gradient(90deg, #b30059, #e60073);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-family: 'Cooper', serif;
+    }
+
+    .carousel-container { max-width: 1400px; margin: 0 auto; padding: 0 20px; position: relative; }
+    .carousel-wrapper { overflow: hidden; padding: 20px 0; }
+    .carousel-track { display: flex; gap: 30px; transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94); padding: 0 10px; will-change: transform; }
+
+    .carousel-slide { flex-shrink: 0; width: 900px; aspect-ratio: 3 / 1; height: auto; border-radius: 16px; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease; cursor: pointer; position: relative; display: block; text-decoration: none; }
+    .carousel-slide img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease; }
+    .carousel-slide.active { transform: scale(1); opacity: 1; }
+    .carousel-slide:not(.active) { transform: scale(0.85); opacity: 0.6; }
+
+    .carousel-dots { display:flex; justify-content:center; gap:12px; margin-top:1.5rem; }
+    .carousel-dot { width:10px; height:10px; border-radius:50%; background:rgba(179,0,89,0.3); cursor:pointer; transition:all .3s; border:none; padding:0; }
+    .carousel-dot.active { background: linear-gradient(135deg,#b30059,#e60073); width:30px; border-radius:5px; }
+
+    @media (max-width: 768px) { .carousel-slide { width: min(92vw, 520px); aspect-ratio: 3 / 1; height:auto; } .carousel-track { gap: 20px; } .promo-title { font-size: 2rem; margin-bottom:2rem; } }
+    @media (max-width: 480px) { .carousel-slide { width: min(94vw, 360px); aspect-ratio: 3 / 1; height:auto; } .carousel-track { gap:15px; } .promo-title { font-size:1.6rem; } }
+  </style>
+
+
+
+  <h2 class="promo-title">Новинки и Акции</h2>
+
+  <div class="carousel-container">
+    <div class="carousel-wrapper">
+      <div class="carousel-track" id="carouselTrack">
+        <a href="https://www.google.com" target="_blank" class="carousel-slide active">
+          <img src="https://i.ibb.co/sdWDb2Ww/1qq.png" alt="Google">
+        </a>
+        <a href="https://www.wikipedia.org" target="_blank" class="carousel-slide">
+          <img src="https://i.ibb.co/sdWDb2Ww/1qq.png" alt="Wikipedia">
+        </a>
+        <a href="https://www.youtube.com" target="_blank" class="carousel-slide">
+          <img src="https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=900&h=300&fit=crop" alt="YouTube">
+        </a>
+        <a href="https://github.com" target="_blank" class="carousel-slide">
+          <img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=900&h=300&fit=crop" alt="GitHub">
+        </a>
+        <a href="https://www.openai.com" target="_blank" class="carousel-slide">
+          <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=900&h=300&fit=crop" alt="OpenAI">
+        </a>
+      </div>
+    </div>
+
+    <div class="carousel-dots" id="carouselDots"></div>
+  </div>
+
+  <script>
+    (function() {
+      const track = document.getElementById('carouselTrack');
+      const slides = Array.from(track.children);
+      const dotsContainer = document.getElementById('carouselDots');
+      const section = document.getElementById('promoCarouselSection');
+
+      const backgrounds = [
+        "url('https://i.pinimg.com/originals/61/9f/df/619fdf0ed554ffebf962a5376d9da398.gif')",
+        "url('https://media1.tenor.com/m/JeY0lKQI2J8AAAAC/the-devil-wears-prada-meryl-streep.gif')",
+        "url('https://i.gifer.com/6Kix.gif')",
+        "url('https://media1.tenor.com/m/RX1PyqZwewEAAAAd/hmm-thinking.gif')",
+        "url('https://img01.rl0.ru/afisha/-x-i/daily.afisha.ru/uploads/images/0/36/03627e6d60e2f6a5e24d3e4e67d017c9.gif')"
+      ];
+
+      let currentIndex = 0;
+
+      // создаём точки
+      slides.forEach((_, index) => {
+        const dot = document.createElement('button');
+        dot.classList.add('carousel-dot');
+        if (index === 0) dot.classList.add('active');
+        dot.setAttribute('aria-label', `Слайд ${index + 1}`);
+        dot.addEventListener('click', () => goToSlide(index));
+        dotsContainer.appendChild(dot);
+      });
+
+      const dots = Array.from(dotsContainer.children);
+
+      function updateCarousel() {
+        const slideWidth = slides[0].offsetWidth;
+        const gap = parseInt(getComputedStyle(track).gap) || 30;
+        const offset = currentIndex * (slideWidth + gap);
+        const containerWidth = track.parentElement.offsetWidth;
+        const centerOffset = (containerWidth - slideWidth) / 2;
+        track.style.transform = `translateX(${centerOffset - offset}px)`;
+
+        slides.forEach((slide, index) => slide.classList.toggle('active', index === currentIndex));
+        dots.forEach((dot, index) => dot.classList.toggle('active', index === currentIndex));
+
+        // меняем фон секции
+        section.style.backgroundImage = backgrounds[currentIndex % backgrounds.length];
+      }
+
+      function goToSlide(index) {
+        currentIndex = (index + slides.length) % slides.length;
+        updateCarousel();
+      }
+
+      function nextSlide() { goToSlide(currentIndex + 1); }
+      function prevSlide() { goToSlide(currentIndex - 1); }
+
+      // клики по слайдам
+      slides.forEach((slide, index) => {
+        slide.addEventListener('click', (e) => {
+          if (index === currentIndex) return; // активный — позволяем переход
+          e.preventDefault();
+          goToSlide(index);
+        });
+      });
+
+      // свайп
+      let startX = 0;
+      let isDragging = false;
+      track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; isDragging = true; });
+      track.addEventListener('touchend', e => {
+        if (!isDragging) return;
+        const endX = e.changedTouches[0].clientX;
+        const diff = startX - endX;
+        if (Math.abs(diff) > 50) diff > 0 ? nextSlide() : prevSlide();
+        isDragging = false;
+      });
+
+      // стрелки
+      window.addEventListener('keydown', e => { if(e.key==='ArrowRight') nextSlide(); if(e.key==='ArrowLeft') prevSlide(); });
+
+      updateCarousel();
+      window.addEventListener('resize', updateCarousel);
+    })();
+  </script>
+</section>
+
+
+<!-- Bootstrap Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
