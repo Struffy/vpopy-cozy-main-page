@@ -218,7 +218,7 @@
     .promo-carousel-section {
       background: url('https://i.pinimg.com/736x/06/17/3d/06173d72e3a238b75da921681d01dd65.jpg') no-repeat center center;
       background-size: cover;
-      padding: 4rem 0;
+      padding: 3rem 0;
       position: relative;
       overflow: hidden;
       transition: background-image 0.6s ease-in-out;
@@ -240,31 +240,153 @@
     .promo-title {
       text-align: center;
       font-size: 2.5rem;
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
       background: linear-gradient(90deg, #b30059, #e60073);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-family: 'Cooper', serif;
+      padding: 0 1rem;
     }
 
-    .carousel-container { max-width: 1400px; margin: 0 auto; padding: 0 20px; position: relative; }
-    .carousel-wrapper { overflow: hidden; padding: 20px 0; }
-    .carousel-track { display: flex; gap: 30px; transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94); padding: 0 10px; will-change: transform; }
+    .carousel-container { 
+      max-width: 1400px; 
+      margin: 0 auto; 
+      padding: 0 10px; 
+      position: relative; 
+    }
+    
+    .carousel-wrapper { 
+      overflow: hidden; 
+      padding: 15px 0;
+      touch-action: pan-y pinch-zoom;
+    }
+    
+    .carousel-track { 
+      display: flex; 
+      gap: 20px; 
+      transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94); 
+      padding: 0 5px; 
+      will-change: transform;
+    }
 
-    .carousel-slide { flex-shrink: 0; width: 900px; aspect-ratio: 3 / 1; height: auto; border-radius: 16px; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease; cursor: pointer; position: relative; display: block; text-decoration: none; }
-    .carousel-slide img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease; }
-    .carousel-slide.active { transform: scale(1); opacity: 1; }
-    .carousel-slide:not(.active) { transform: scale(0.85); opacity: 0.6; }
+    .carousel-slide { 
+      flex-shrink: 0; 
+      width: 900px; 
+      aspect-ratio: 3 / 1; 
+      height: auto; 
+      border-radius: 12px; 
+      overflow: hidden; 
+      transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease; 
+      cursor: pointer; 
+      position: relative; 
+      display: block; 
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    .carousel-slide img { 
+      width: 100%; 
+      height: 100%; 
+      object-fit: cover; 
+      display: block; 
+      transition: transform 0.3s ease; 
+    }
+    
+    .carousel-slide.active { 
+      transform: scale(1); 
+      opacity: 1;
+      box-shadow: 0 8px 20px rgba(179,0,89,0.2);
+    }
+    
+    .carousel-slide:not(.active) { 
+      transform: scale(0.9); 
+      opacity: 0.7; 
+    }
 
-    .carousel-dots { display:flex; justify-content:center; gap:12px; margin-top:1.5rem; }
-    .carousel-dot { width:10px; height:10px; border-radius:50%; background:rgba(179,0,89,0.3); cursor:pointer; transition:all .3s; border:none; padding:0; }
-    .carousel-dot.active { background: linear-gradient(135deg,#b30059,#e60073); width:30px; border-radius:5px; }
+    .carousel-dots { 
+      display: flex; 
+      justify-content: center; 
+      gap: 10px; 
+      margin-top: 1.5rem; 
+      padding: 0 1rem;
+    }
+    
+    .carousel-dot { 
+      width: 10px; 
+      height: 10px; 
+      border-radius: 50%; 
+      background: rgba(179,0,89,0.3); 
+      cursor: pointer; 
+      transition: all 0.3s; 
+      border: none; 
+      padding: 0; 
+    }
+    
+    .carousel-dot.active { 
+      background: linear-gradient(135deg,#b30059,#e60073); 
+      width: 30px; 
+      border-radius: 5px; 
+    }
 
-    @media (max-width: 768px) { .carousel-slide { width: min(92vw, 520px); aspect-ratio: 3 / 1; height:auto; } .carousel-track { gap: 20px; } .promo-title { font-size: 2rem; margin-bottom:2rem; } }
-    @media (max-width: 480px) { .carousel-slide { width: min(94vw, 360px); aspect-ratio: 3 / 1; height:auto; } .carousel-track { gap:15px; } .promo-title { font-size:1.6rem; } }
+    /* Мобильная версия */
+    @media (max-width: 1024px) {
+      .promo-carousel-section {
+        padding: 2rem 0;
+      }
+      
+      .promo-title {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .carousel-container {
+        padding: 0 5px;
+      }
+      
+      .carousel-wrapper {
+        padding: 10px 0;
+      }
+    }
+
+    @media (max-width: 768px) { 
+      .carousel-slide { 
+        width: min(85vw, 520px); 
+        aspect-ratio: 3 / 1; 
+        height: auto; 
+      } 
+      
+      .carousel-track { 
+        gap: 15px; 
+        padding: 0 2px;
+      } 
+      
+      .promo-title { 
+        font-size: 1.8rem; 
+        margin-bottom: 1.5rem; 
+      } 
+    }
+    
+    @media (max-width: 480px) { 
+      .carousel-slide { 
+        width: min(90vw, 360px); 
+        aspect-ratio: 3 / 1; 
+        height: auto; 
+      } 
+      
+      .carousel-track { 
+        gap: 12px; 
+      } 
+      
+      .promo-title { 
+        font-size: 1.5rem; 
+        margin-bottom: 1rem;
+      }
+      
+      .carousel-dots {
+        margin-top: 1rem;
+      }
+    }
   </style>
-
-
 
   <h2 class="promo-title">Новинки и Акции</h2>
 
@@ -308,8 +430,12 @@
       ];
 
       let currentIndex = 0;
+      let startX = 0;
+      let currentTranslate = 0;
+      let isDragging = false;
+      let animationID;
 
-      // создаём точки
+      // Создаём точки
       slides.forEach((_, index) => {
         const dot = document.createElement('button');
         dot.classList.add('carousel-dot');
@@ -322,17 +448,29 @@
       const dots = Array.from(dotsContainer.children);
 
       function updateCarousel() {
-        const slideWidth = slides[0].offsetWidth;
-        const gap = parseInt(getComputedStyle(track).gap) || 30;
-        const offset = currentIndex * (slideWidth + gap);
+        const slide = slides[0];
+        if (!slide) return;
+        
+        const slideWidth = slide.offsetWidth;
+        const gap = parseInt(getComputedStyle(track).gap) || 20;
         const containerWidth = track.parentElement.offsetWidth;
+        
+        // Центрирование активного слайда
+        const offset = currentIndex * (slideWidth + gap);
         const centerOffset = (containerWidth - slideWidth) / 2;
+        
         track.style.transform = `translateX(${centerOffset - offset}px)`;
 
-        slides.forEach((slide, index) => slide.classList.toggle('active', index === currentIndex));
-        dots.forEach((dot, index) => dot.classList.toggle('active', index === currentIndex));
+        // Обновляем классы активных элементов
+        slides.forEach((slide, index) => {
+          slide.classList.toggle('active', index === currentIndex);
+        });
+        
+        dots.forEach((dot, index) => {
+          dot.classList.toggle('active', index === currentIndex);
+        });
 
-        // меняем фон секции
+        // Меняем фон секции
         section.style.backgroundImage = backgrounds[currentIndex % backgrounds.length];
       }
 
@@ -341,35 +479,95 @@
         updateCarousel();
       }
 
-      function nextSlide() { goToSlide(currentIndex + 1); }
-      function prevSlide() { goToSlide(currentIndex - 1); }
+      function nextSlide() { 
+        goToSlide(currentIndex + 1); 
+      }
+      
+      function prevSlide() { 
+        goToSlide(currentIndex - 1); 
+      }
 
-      // клики по слайдам
+      // Обработчики для свайпа
+      function handleTouchStart(e) {
+        startX = e.touches[0].clientX;
+        isDragging = true;
+        track.style.transition = 'none';
+      }
+
+      function handleTouchMove(e) {
+        if (!isDragging) return;
+        e.preventDefault();
+        
+        const currentX = e.touches[0].clientX;
+        const diff = startX - currentX;
+        
+        if (Math.abs(diff) > 5) {
+          const slideWidth = slides[0].offsetWidth;
+          const gap = parseInt(getComputedStyle(track).gap) || 20;
+          const containerWidth = track.parentElement.offsetWidth;
+          const offset = currentIndex * (slideWidth + gap);
+          const centerOffset = (containerWidth - slideWidth) / 2;
+          
+          track.style.transform = `translateX(${centerOffset - offset - diff}px)`;
+        }
+      }
+
+      function handleTouchEnd(e) {
+        if (!isDragging) return;
+        
+        const endX = e.changedTouches[0].clientX;
+        const diff = startX - endX;
+        
+        track.style.transition = 'transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94)';
+        
+        if (Math.abs(diff) > 50) {
+          if (diff > 0) {
+            nextSlide();
+          } else {
+            prevSlide();
+          }
+        } else {
+          updateCarousel();
+        }
+        
+        isDragging = false;
+      }
+
+      // Клики по слайдам
       slides.forEach((slide, index) => {
         slide.addEventListener('click', (e) => {
-          if (index === currentIndex) return; // активный — позволяем переход
+          if (index === currentIndex) return;
           e.preventDefault();
           goToSlide(index);
         });
       });
 
-      // свайп
-      let startX = 0;
-      let isDragging = false;
-      track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; isDragging = true; });
-      track.addEventListener('touchend', e => {
-        if (!isDragging) return;
-        const endX = e.changedTouches[0].clientX;
-        const diff = startX - endX;
-        if (Math.abs(diff) > 50) diff > 0 ? nextSlide() : prevSlide();
-        isDragging = false;
+      // Добавляем обработчики свайпа
+      track.addEventListener('touchstart', handleTouchStart, { passive: true });
+      track.addEventListener('touchmove', handleTouchMove, { passive: false });
+      track.addEventListener('touchend', handleTouchEnd);
+
+      // Стрелки клавиатуры
+      window.addEventListener('keydown', (e) => { 
+        if(e.key === 'ArrowRight') nextSlide(); 
+        if(e.key === 'ArrowLeft') prevSlide(); 
       });
 
-      // стрелки
-      window.addEventListener('keydown', e => { if(e.key==='ArrowRight') nextSlide(); if(e.key==='ArrowLeft') prevSlide(); });
+      // Автоматическое обновление при изменении размера
+      let resizeTimeout;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(updateCarousel, 250);
+      });
 
+      // Инициализация
       updateCarousel();
-      window.addEventListener('resize', updateCarousel);
+      
+      // Ждем загрузки всех изображений
+      window.addEventListener('load', updateCarousel);
+      
+      // Дополнительное обновление после полной загрузки
+      setTimeout(updateCarousel, 100);
     })();
   </script>
 </section>
@@ -378,4 +576,5 @@
 <!-- Bootstrap Bundle -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
